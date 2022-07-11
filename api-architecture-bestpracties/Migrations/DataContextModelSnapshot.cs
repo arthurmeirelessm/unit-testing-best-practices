@@ -44,6 +44,9 @@ namespace api_architecture_bestpracties.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TypeUser")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("UpdateAt")
                         .HasColumnType("datetime2");
 

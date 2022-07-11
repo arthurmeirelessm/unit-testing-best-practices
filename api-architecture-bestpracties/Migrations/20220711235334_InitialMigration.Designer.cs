@@ -10,7 +10,7 @@ using api_architecture_bestpracties.Helpers;
 namespace api_architecture_bestpracties.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220711234610_InitialMigration")]
+    [Migration("20220711235334_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,6 +45,9 @@ namespace api_architecture_bestpracties.Migrations
 
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TypeUser")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("UpdateAt")
                         .HasColumnType("datetime2");

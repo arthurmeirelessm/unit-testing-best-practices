@@ -1,4 +1,6 @@
-﻿namespace api_architecture_bestpracties.Models
+﻿using api_architecture_bestpracties.Enuns;
+
+namespace api_architecture_bestpracties.Models
 {
     public class UserModel : BaseModel
     {
@@ -9,6 +11,8 @@
         public string Email { get; set; }
 
         public int Age { get; set; }
+
+        public TypeUser TypeUser { get; set; }
 
         public string Password { get; set; }
     }
