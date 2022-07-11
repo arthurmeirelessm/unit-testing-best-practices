@@ -10,7 +10,7 @@ namespace api_architecture_bestpracties.Helpers
 
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<UserModel> Users { get; set; }
 
     }
 }

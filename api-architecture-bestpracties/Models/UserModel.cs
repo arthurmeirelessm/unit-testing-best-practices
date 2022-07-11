@@ -1,6 +1,6 @@
 ﻿namespace api_architecture_bestpracties.Models
 {
-    public class User : BaseModel
+    public class UserModel : BaseModel
     {
         public string Name { get; set; }
 
