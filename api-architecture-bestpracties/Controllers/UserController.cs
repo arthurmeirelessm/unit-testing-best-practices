@@ -20,7 +20,7 @@ namespace api_architecture_bestpracties.Controllers
             _userFacade = userFacade;
         }
 
-        [HttpPost("users")]
+        [HttpPost]
        public async Task<IActionResult> CreateUserAsync([FromBody] UserModel user)
         {
             var methodFacade = await _userFacade.CreateUserAsync(user);

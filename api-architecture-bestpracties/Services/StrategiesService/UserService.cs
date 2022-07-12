@@ -2,6 +2,7 @@
 using api_architecture_bestpracties.Models;
 using api_architecture_bestpracties.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,13 +21,17 @@ namespace api_architecture_bestpracties.Services
 
         public async Task<UserModel> CreateUserAsync(UserModel user)
         {
-            UserModel userDb = await _dataContext.Users.SingleOrDefaultAsync(x => x.Email == user.Email);
+            UserModel userDb = await _dataContext.Users.AsNoTracking().SingleOrDefaultAsync(x => x.UserName == user.UserName);
 
             if (userDb is not null)
             {
-                throw new System.Exception
+                throw new Exception($"User {user.UserName} already exists");
             }
-            return userDb;  
+
+            _dataContext.Users.Add(user);
+            await _dataContext.SaveChangesAsync();
+
+            return user;
         }
 
         public Task DeleteByIdAsync(int id)
