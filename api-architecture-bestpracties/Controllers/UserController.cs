@@ -27,5 +27,14 @@ namespace api_architecture_bestpracties.Controllers
 
             return Ok(methodFacade);
         } 
+
+        [HttpGet]
+
+        public async Task<IActionResult> GetAllAsync()
+        {
+            var methodFacade = await _userFacade.GetAllAsync();
+
+            return Ok();
+        }
     }
 }

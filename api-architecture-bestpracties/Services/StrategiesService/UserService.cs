@@ -36,12 +36,12 @@ namespace api_architecture_bestpracties.Services
 
         public Task DeleteByIdAsync(int id)
         {
-            throw new System.NotImplementedException();
+           
         }
 
-        public Task<List<UserModel>> GetAllAsync()
+        public async Task<List<UserModel>> GetAllAsync()
         {
-            throw new System.NotImplementedException();
+           return await _dataContext.Users.ToListAsync();
         }
 
         public Task<UserModel> GetByIdAsync(int id)
