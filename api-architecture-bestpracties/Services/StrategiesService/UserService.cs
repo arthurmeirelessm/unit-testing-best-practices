@@ -9,7 +9,7 @@ namespace api_architecture_bestpracties.Services
     {
         public Task<UserModel> CreateUserAsync(UserModel user)
         {
-            return true;
+            throw new System.NotImplementedException();
         }
 
         public Task DeleteByIdAsync(int id)
