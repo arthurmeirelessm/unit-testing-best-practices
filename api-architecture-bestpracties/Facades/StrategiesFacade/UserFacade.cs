@@ -7,8 +7,6 @@ namespace api_architecture_bestpracties.Facades.Strategies
 {
     public class UserFacade : IUserFacade
     {
-
-
         private readonly IUserService _userService;
 
         public UserFacade(IUserService userService)
@@ -16,29 +14,29 @@ namespace api_architecture_bestpracties.Facades.Strategies
             _userService = userService;
         }
 
-        public Task<UserModel> CreateUserAsync(UserModel user)
+        public async Task<UserModel> CreateUserAsync(UserModel user)
         {
-            return _userService.CreateUserAsync(user);
+            return await _userService.CreateUserAsync(user);
         }
 
         public Task DeleteByIdAsync(int id)
         {
-            throw new System.NotImplementedException();
+            return _userService.DeleteByIdAsync(id);
         }
 
         public Task<List<UserModel>> GetAllAsync()
         {
-            throw new System.NotImplementedException();
+           return _userService.GetAllAsync();
         }
 
         public Task<UserModel> GetByIdAsync(int id)
         {
-            throw new System.NotImplementedException();
+            return _userService.GetByIdAsync(id);
         }
 
         public Task<UserModel> UpdateByIdAsync(UserModel user, int id)
         {
-            throw new System.NotImplementedException();
+           return _userService.UpdateByIdAsync(user, id);
         }
     }
 }

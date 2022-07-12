@@ -1,15 +1,32 @@
-﻿using api_architecture_bestpracties.Models;
+﻿using api_architecture_bestpracties.Helpers;
+using api_architecture_bestpracties.Models;
 using api_architecture_bestpracties.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace api_architecture_bestpracties.Services
 {
     public class UserService : IUserService
     {
-        public Task<UserModel> CreateUserAsync(UserModel user)
+
+        private readonly DataContext _dataContext;
+
+        public UserService(DataContext dataContet)
         {
-            throw new System.NotImplementedException();
+            _dataContext = dataContet;
+        }
+
+        public async Task<UserModel> CreateUserAsync(UserModel user)
+        {
+            UserModel userDb = await _dataContext.Users.SingleOrDefaultAsync(x => x.Email == user.Email);
+
+            if (userDb is not null)
+            {
+                throw new System.Exception
+            }
+            return userDb;  
         }
 
         public Task DeleteByIdAsync(int id)
