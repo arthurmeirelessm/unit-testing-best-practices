@@ -14,19 +14,27 @@ namespace api_architecture_bestpracties.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserFacade _userFacade;
-            
+
         public UserController(IUserFacade userFacade)
         {
             _userFacade = userFacade;
         }
 
         [HttpPost]
-       public async Task<IActionResult> CreateUserAsync([FromBody] UserModel user)
+        public async Task<IActionResult> CreateUserAsync([FromBody] UserModel user)
         {
             var methodFacade = await _userFacade.CreateUserAsync(user);
 
             return Ok(methodFacade);
-        } 
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetByIdAsync(int id)
+        {
+            var methodFacade = await _userFacade.GetByIdAsync(id);
+
+            return Ok(methodFacade);
+        }
 
         [HttpGet]
 
@@ -34,7 +42,9 @@ namespace api_architecture_bestpracties.Controllers
         {
             var methodFacade = await _userFacade.GetAllAsync();
 
-            return Ok();
+            return Ok(methodFacade);
         }
+
+
     }
 }

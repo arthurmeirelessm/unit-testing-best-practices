@@ -36,17 +36,24 @@ namespace api_architecture_bestpracties.Services
 
         public Task DeleteByIdAsync(int id)
         {
-           
+            throw new System.NotImplementedException();
         }
 
         public async Task<List<UserModel>> GetAllAsync()
         {
-           return await _dataContext.Users.ToListAsync();
+            return await _dataContext.Users.ToListAsync();
         }
 
-        public Task<UserModel> GetByIdAsync(int id)
+        public async Task<UserModel> GetByIdAsync(int id)
         {
-            throw new System.NotImplementedException();
+            UserModel userDb = await _dataContext.Users.SingleOrDefaultAsync(x => x.Id == id);
+
+            if (userDb is null)
+            {
+                throw new Exception($"Is {id} not exists");
+            }
+            return userDb;
+
         }
 
         public Task<UserModel> UpdateByIdAsync(UserModel user, int id)

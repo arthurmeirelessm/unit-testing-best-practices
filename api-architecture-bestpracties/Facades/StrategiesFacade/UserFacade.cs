@@ -19,24 +19,24 @@ namespace api_architecture_bestpracties.Facades.Strategies
             return await _userService.CreateUserAsync(user);
         }
 
-        public async Task DeleteByIdAsync(int id)
+        public Task DeleteByIdAsync(int id)
         {
-            
+            return _userService.DeleteByIdAsync(id);
         }
 
-        public Task<List<UserModel>> GetAllAsync()
+        public async Task<List<UserModel>> GetAllAsync()
         {
-           return _userService.GetAllAsync();
+            return await _userService.GetAllAsync();
         }
 
-        public Task<UserModel> GetByIdAsync(int id)
+        public async Task<UserModel> GetByIdAsync(int id)
         {
-            return _userService.GetByIdAsync(id);
+            return await _userService.GetByIdAsync(id);
         }
 
         public Task<UserModel> UpdateByIdAsync(UserModel user, int id)
         {
-           return _userService.UpdateByIdAsync(user, id);
+            return _userService.UpdateByIdAsync(user, id);
         }
     }
 }
