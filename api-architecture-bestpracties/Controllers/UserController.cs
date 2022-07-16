@@ -45,6 +45,15 @@ namespace api_architecture_bestpracties.Controllers
             return Ok(methodFacade);
         }
 
+        [HttpDelete("{id}")]
+
+        public async Task<IActionResult> DeleteByIdAsync(int id)
+        {
+            var methodFacade = await _userFacade.DeleteByIdAsync(id);
+
+            return Ok(methodFacade);
+        }
+
 
     }
 }

@@ -34,15 +34,6 @@ namespace api_architecture_bestpracties.Services
             return user;
         }
 
-        public Task DeleteByIdAsync(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public async Task<List<UserModel>> GetAllAsync()
-        {
-            return await _dataContext.Users.ToListAsync();
-        }
 
         public async Task<UserModel> GetByIdAsync(int id)
         {
@@ -55,6 +46,17 @@ namespace api_architecture_bestpracties.Services
             return userDb;
 
         }
+
+        public async Task DeleteByIdAsync(int id)
+        {
+            var userDb = await _dataContext.Users.SingleOrDefaultAsync()
+        }
+
+        public async Task<List<UserModel>> GetAllAsync()
+        {
+            return await _dataContext.Users.ToListAsync();
+        }
+
 
         public Task<UserModel> UpdateByIdAsync(UserModel user, int id)
         {
