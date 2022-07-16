@@ -34,9 +34,9 @@ namespace api_architecture_bestpracties.Facades.Strategies
             return await _userService.GetAllAsync();
         }
 
-        public Task<UserModel> UpdateByIdAsync(UserModel user, int id)
+        public async Task<UserModel> UpdateByIdAsync(UserModel user, int id)
         {
-            return _userService.UpdateByIdAsync(user, id);
+            return await _userService.UpdateByIdAsync(user, id);
         }
     }
 }

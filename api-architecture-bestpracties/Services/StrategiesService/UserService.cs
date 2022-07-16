@@ -66,9 +66,25 @@ namespace api_architecture_bestpracties.Services
         }
 
 
-        public Task<UserModel> UpdateByIdAsync(UserModel user, int id)
+        public async Task<UserModel> UpdateByIdAsync(UserModel user, int id)
         {
-            throw new System.NotImplementedException();
+
+            UserModel userDb = await _dataContext.Users.AsNoTracking().SingleOrDefaultAsync(x => x.Id == id);
+
+            if (userDb is null)
+            {
+                throw new Exception($"Is {id} not exists");
+            }
+
+            if (user.Id != id)
+            {
+                throw new Exception($"Is {id} is different");
+            }
+
+            _dataContext.Entry(user).State = EntityState.Modified;
+            await _dataContext.SaveChangesAsync();
+
+            return user;
         }
     }
 }

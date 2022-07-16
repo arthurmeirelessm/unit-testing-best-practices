@@ -52,5 +52,13 @@ namespace api_architecture_bestpracties.Controllers
         }
 
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutByIdAsync([FromBody] UserModel user, int id)
+        {
+            var methodFacade = await _userFacade.UpdateByIdAsync(user, id);
+
+            return Ok(methodFacade);
+        }
+
     }
 }
