@@ -26,7 +26,7 @@ namespace api_architecture_bestpracties.Facades.Strategies
 
         public async Task DeleteByIdAsync(int id)
         {
-            return await _userService.DeleteByIdAsync(id);
+            await _userService.DeleteByIdAsync(id);
         }
 
         public async Task<List<UserModel>> GetAllAsync()

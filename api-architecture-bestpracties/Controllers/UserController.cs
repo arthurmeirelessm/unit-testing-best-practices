@@ -37,7 +37,6 @@ namespace api_architecture_bestpracties.Controllers
         }
 
         [HttpGet]
-
         public async Task<IActionResult> GetAllAsync()
         {
             var methodFacade = await _userFacade.GetAllAsync();
@@ -46,12 +45,10 @@ namespace api_architecture_bestpracties.Controllers
         }
 
         [HttpDelete("{id}")]
-
         public async Task<IActionResult> DeleteByIdAsync(int id)
         {
-            var methodFacade = await _userFacade.DeleteByIdAsync(id);
-
-            return Ok(methodFacade);
+            await _userFacade.DeleteByIdAsync(id);
+            return NoContent();
         }
 
 

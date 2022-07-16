@@ -49,7 +49,15 @@ namespace api_architecture_bestpracties.Services
 
         public async Task DeleteByIdAsync(int id)
         {
-            var userDb = await _dataContext.Users.SingleOrDefaultAsync()
+            var userDb = await _dataContext.Users.SingleOrDefaultAsync(x => x.Id == id);
+
+            if (userDb is null)
+            {
+                throw new Exception($"Is {id} not exists");
+            }
+
+            _dataContext.Users.Remove(userDb);
+            await _dataContext.SaveChangesAsync();
         }
 
         public async Task<List<UserModel>> GetAllAsync()
