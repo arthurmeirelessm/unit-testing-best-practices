@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace api_architecture_bestpracties.Migrations
 {
-    public partial class InitialMigration : Migration
+    public partial class RefactoringMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
