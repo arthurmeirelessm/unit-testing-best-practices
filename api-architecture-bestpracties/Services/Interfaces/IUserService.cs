@@ -1,4 +1,5 @@
 ﻿using api_architecture_bestpracties.Models;
+using api_architecture_bestpracties.Models.Responses;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

@@ -7,7 +7,7 @@ namespace api_architecture_bestpracties.Facades
 {
     public interface IUserFacade
     {
-        Task<UserCreatedResponse> CreateUserAsync(UserModel user);
+        Task<UserModel> CreateUserAsync(UserModel user);
         Task<UserModel> GetByIdAsync(int id);
         Task<List<UserModel>> GetAllAsync();
         Task<UserModel> UpdateByIdAsync(UserModel user, int id);

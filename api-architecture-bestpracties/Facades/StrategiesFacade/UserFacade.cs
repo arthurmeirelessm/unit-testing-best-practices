@@ -1,4 +1,5 @@
 ﻿using api_architecture_bestpracties.Models;
+using api_architecture_bestpracties.Models.Responses;
 using api_architecture_bestpracties.Services.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace api_architecture_bestpracties.Facades.Strategies
             _userService = userService;
         }
 
-        public async Task<UserCreatedResponse> CreateUserAsync(UserModel user)
+        public async Task<UserModel> CreateUserAsync(UserModel user)
         {
             return await _userService.CreateUserAsync(user);
         }

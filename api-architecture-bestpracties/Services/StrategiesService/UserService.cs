@@ -1,5 +1,6 @@
 ﻿using api_architecture_bestpracties.Helpers;
 using api_architecture_bestpracties.Models;
+using api_architecture_bestpracties.Models.Responses;
 using api_architecture_bestpracties.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;

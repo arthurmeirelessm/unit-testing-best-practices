@@ -41,7 +41,7 @@ namespace api_architecture_bestpracties.Controllers
         {
             var methodFacade = await _userFacade.GetAllAsync();
 
-            return Ok(methodFacade);
+            return methodFacade.Any() ? Ok(methodFacade) : NotFound();
         }
 
         [HttpDelete("{id}")]
