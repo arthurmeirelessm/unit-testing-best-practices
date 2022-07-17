@@ -10,8 +10,8 @@ using api_architecture_bestpracties.Helpers;
 namespace api_architecture_bestpracties.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220716062218_RefactoringMigration")]
-    partial class RefactoringMigration
+    [Migration("20220717041120_RefactoringDatabase")]
+    partial class RefactoringDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
