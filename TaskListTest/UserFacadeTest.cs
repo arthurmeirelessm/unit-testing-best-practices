@@ -28,8 +28,6 @@ namespace TaskListTest
         public async Task GetByIdAsync_ShouldReturnUser_WhenUserExists()
         {
             // Arrange
-            var userId = 1;
-            var userName = "moisesscarmo";
             var userModel = new UserModel
             {
                 FirstName = "Moises",
@@ -37,18 +35,19 @@ namespace TaskListTest
                 Email = "moises@gmail.com",
                 UserName = "moisesscarmo",
                 Age = 45,
-                TypeUser = (api_architecture_bestpracties.Enuns.TypeUser)2,
-                Password = "9807"
+                TypeUser = (api_architecture_bestpracties.Enuns.TypeUser)0,
+                Password = "9807",
+                Id = 3
             };
-            _userServiceMock.Setup(x => x.GetByIdAsync(userId))
+            _userServiceMock.Setup(x => x.GetByIdAsync(userModel.Id))
                 .ReturnsAsync(userModel);
 
             // Act
-            var response = await _userFacade.GetByIdAsync(userId);
+            var response = await _userFacade.GetByIdAsync(userModel.Id);
 
             //Assert
-            Assert.Equal(userId, userModel.Id);
-            Assert.Equal(userName, userModel.UserName);
+            Assert.Equal(userModel, response);
+         
         }
     }
 }
