@@ -20,6 +20,10 @@ namespace api_architecture_bestpracties.Controllers
             _userFacade = userFacade;
         }
 
+        /// <summary>
+        /// search for information from a sodexo card
+        /// </summary>
+        /// <param name="user">User model</param>
         [HttpPost]
         public async Task<IActionResult> CreateUserAsync([FromBody] UserModel user)
         {
@@ -28,6 +32,10 @@ namespace api_architecture_bestpracties.Controllers
             return Ok(methodFacade);
         }
 
+        /// <summary>
+        /// search for information from a sodexo card
+        /// </summary>
+        /// <param name="id">Id past by user</param>
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
@@ -36,6 +44,9 @@ namespace api_architecture_bestpracties.Controllers
             return Ok(methodFacade);
         }
 
+        /// <summary>
+        /// search for information from a sodexo card
+        /// </summary>  
         [HttpGet]
         public async Task<IActionResult> GetAllAsync()
         {
@@ -44,6 +55,10 @@ namespace api_architecture_bestpracties.Controllers
             return methodFacade.Any() ? Ok(methodFacade) : NotFound();
         }
 
+        /// <summary>
+        /// search for information from a sodexo card
+        /// </summary>
+        /// <param name="id">Id past by user</param>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteByIdAsync(int id)
         {
@@ -51,7 +66,11 @@ namespace api_architecture_bestpracties.Controllers
             return NoContent();
         }
 
-
+        /// <summary>
+        /// search for information from a sodexo card
+        /// </summary>
+        /// <param name="user">user model</param>
+        /// <param name="id">Id past by user</param>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutByIdAsync([FromBody] UserModel user, int id)
         {
@@ -59,6 +78,7 @@ namespace api_architecture_bestpracties.Controllers
 
             return Ok(methodFacade);
         }
+
 
     }
 }
